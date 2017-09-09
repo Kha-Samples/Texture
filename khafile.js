@@ -1,7 +1,7 @@
-let project = new Project('Shader');
+let project = new Project('TextureTest');
 
-project.addSources('Sources');
-
+project.addAssets('Assets/**');
 project.addShaders('Sources/Shaders/**');
+project.addSources('Sources');
 
 resolve(project);
