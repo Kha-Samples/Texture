@@ -27,7 +27,7 @@ class Main {
 	static var offset: ConstantLocation;
 	
 	public static function main(): Void {
-		System.init({title: "TextureTest", width: 1024, height: 768}, function () {
+		System.start({title: "TextureTest", width: 1024, height: 768}, function (_) {
 				Assets.loadEverything(function () {
 				var structure = new VertexStructure();
 				structure.add("pos", VertexData.Float3);
@@ -54,13 +54,13 @@ class Main {
 				i[0] = 0; i[1] = 1; i[2] = 2;
 				indices.unlock();
 				
-				System.notifyOnRender(render);
+				System.notifyOnFrames(render);
 			});
 		});
 	}
 	
-	private static function render(frame: Framebuffer): Void {
-		var g = frame.g4;
+	private static function render(frames: Array<Framebuffer>): Void {
+		var g = frames[0].g4;
 		g.begin();
 		g.clear(Color.Black);
 		g.setPipeline(pipeline);
