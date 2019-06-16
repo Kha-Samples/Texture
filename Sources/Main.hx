@@ -28,7 +28,7 @@ class Main {
 	
 	public static function main(): Void {
 		System.start({title: "TextureTest", width: 1024, height: 768}, function (_) {
-				Assets.loadEverything(function () {
+			Assets.loadEverything(function () {
 				var structure = new VertexStructure();
 				structure.add("pos", VertexData.Float3);
 				structure.add("tex", VertexData.Float2);
