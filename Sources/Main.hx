@@ -1,5 +1,3 @@
-package;
-
 import kha.Assets;
 import kha.Color;
 import kha.Framebuffer;
@@ -8,7 +6,6 @@ import kha.Scheduler;
 import kha.Shaders;
 import kha.System;
 import kha.graphics4.ConstantLocation;
-import kha.graphics4.FragmentShader;
 import kha.graphics4.IndexBuffer;
 import kha.graphics4.PipelineState;
 import kha.graphics4.TextureUnit;
@@ -27,8 +24,8 @@ class Main {
 	static var offset: ConstantLocation;
 	
 	public static function main(): Void {
-		System.start({title: "TextureTest", width: 1024, height: 768}, function (_) {
-			Assets.loadEverything(function () {
+		System.start({title: "TextureTest", width: 1024, height: 768}, (_) -> {
+			Assets.loadEverything(() -> {
 				var structure = new VertexStructure();
 				structure.add("pos", VertexData.Float3);
 				structure.add("tex", VertexData.Float2);
@@ -59,7 +56,7 @@ class Main {
 		});
 	}
 	
-	private static function render(frames: Array<Framebuffer>): Void {
+	static function render(frames: Array<Framebuffer>): Void {
 		var g = frames[0].g4;
 		g.begin();
 		g.clear(Color.Black);
